@@ -1,0 +1,29 @@
+What to do, in order:
+
+1. Make Board class
+Should have:
+ - int[][] _board
+ - boolean[][] _modifiable
+ - Board(int width, int height)
+ - Board()
+ - void generate(int numIncluded)
+ - String toString()
+ - int getTile(int r, int c)
+ - int setTile(int r, int c, int newVal)
+ - boolean isSolved()
+
+LATER:
+ - void solve()
+
+2. Make a Game class
+   TK
+
+3. Convert to Processing
+   Add display methods to Game class
+
+4. Implement backtracking solving algorithms
+   and try to visualize them in some way
+
+5. Package it together, so that a player is able
+   to either solve the sudoku themself or use
+   the computer solver
