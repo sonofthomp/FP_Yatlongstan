@@ -1,9 +1,9 @@
 # FP_Yatlongstan
 
-### TEAM NAME:\
+### TEAM NAME:
 ## Yatlongstan
 
-### TEAM ROSTER:\
+### TEAM ROSTER:
 ## Weichen Liu, Yat Long Chan, Gabriel Thompson
 
 ### CONCISE PROJECT DESCRIPTION:\
