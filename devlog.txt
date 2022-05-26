@@ -4,7 +4,7 @@ Weichen Liu
 Yat Long Chan
 pd 8
 ---------------------
-
+Sudoku
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
@@ -47,9 +47,14 @@ tales of wisdom gained...
 ==============================================================
 
 
-2022-0X-XX
+2022-05-18
 --------------------------------------------------------------
-Name 1 :: Thing
-Name 2 :: Thing
-Name 3 :: Thing
+Gabriel :: Create Repo
+==============================================================
+
+2022-05-25
+--------------------------------------------------------------
+All :: Finalize project idea, solidify plan
+Gabriel :: update readme, add flag, add devlog template
+Yat Long :: add .gitignore, update devlog
 ==============================================================
