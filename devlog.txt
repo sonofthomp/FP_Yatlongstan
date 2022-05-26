@@ -57,4 +57,5 @@ Gabriel :: Create Repo
 All :: Finalize project idea, solidify plan
 Gabriel :: update readme, add flag, add devlog template
 Yat Long :: add .gitignore, update devlog
+Weichen Liu :: added some git flavor markdown to the readMe
 ==============================================================
