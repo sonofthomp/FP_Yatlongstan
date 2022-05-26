@@ -4,7 +4,8 @@
 
 ### CONCISE PROJECT DESCRIPTION:
  ```
- A sudoku engine that allows generates sudoku puzzles, allows player to solve them, and includes an algorithm for the computer to solve it which uses backtracking
+ A sudoku engine that allows generates sudoku puzzles, allows player to solve them, 
+ and includes an algorithm for the computer to solve it which uses backtracking
  ```
 
 ### HOW-TO-LAUNCH:
