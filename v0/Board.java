@@ -36,8 +36,13 @@ public class Board {
         return oldVal;
     }
 
-    // fills sudoku board base on rules
-    public void generate(int numIncluded) {
+    // fills board, then remove numExcluded tiles randomly
+    /*
+    1. Fill diagonmal square sections first
+    2. fill remaining tiles by finding a safe number
+    3. remove numExcluded tiles.
+    */
+    public void generate(int numExcluded) {
         /* TO BE IMPLEMENTED */
     }
 
