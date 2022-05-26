@@ -1,6 +1,6 @@
 # FP_Yatlongstan
 
-### Yatlongstan :: Weichen Liu, Yat Long Chan, Gabriel Thompson
+* Yatlongstan :: Weichen Liu, Yat Long Chan, Gabriel Thompson
 
 ### CONCISE PROJECT DESCRIPTION:
  ```
