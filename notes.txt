@@ -27,3 +27,6 @@ LATER:
 5. Package it together, so that a player is able
    to either solve the sudoku themself or use
    the computer solver
+
+FLUFF: 
+6. Map numbers to different pictures (like waifus / husbandos)
