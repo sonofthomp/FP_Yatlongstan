@@ -14,14 +14,6 @@ public class Board {
     public Board() {
         _board = new int[9][9];
         _isModifiable = new boolean[9][9];
-        //generate(randNum);
-    }
-
-    // overload constructor: n by n board
-    public Board(int n) {
-        _board = new int[n][n];
-        _isModifiable = new boolean[n][n];
-        //generate(randNum);
     }
 
     // accessor: return value at (r,c)
@@ -47,12 +39,54 @@ public class Board {
 	return out;
     }
 
-    // fills board, then remove numExcluded tiles randomly
-    /*
-    1. Fill diagonmal square sections first
-    2. fill remaining tiles by finding a safe number
-    3. remove numExcluded tiles.
-    */
+	//recursive backtracking to solve sudoku puzzle
+    public void solve() {
+	solveHelper(0,0);
+    }
+
+        /*
+        ALGO:
+        To solve from one tile:
+                if we're off the board
+                        return
+                make a list of possible moves
+				if tile is not modifiable
+					recursively call next tile
+                if there are any possible moves we can make
+                        for move in moves,
+                                make move
+                                recursively call next tile
+        */
+    public boolean solveHelper(int startRow, int startCol) {
+	if (startRow > 8 || startCol > 8)
+		return true;
+       if (!_isModifiable[startRow][startCol]) {
+		if (startCol == 8) {
+			return solveHelper(startRow + 1, 0);
+		} else {
+			return solveHelper(startRow, startCol + 1);
+		}
+       }
+
+       for (int i = 1; i <= 9; i++ ) {
+		if (isValidMove(startRow, startCol, i)) {
+			setTile(startRow, startCol, i);
+	   		boolean solved;
+			if (startCol == 8) {
+				solved = solveHelper(startRow + 1, 0);
+	    		 } else {
+				solved = solveHelper(startRow, startCol + 1);
+	    		 }
+			 if (solved) return true;
+
+		}
+       }
+	setTile(startRow, startCol, 0);
+	return false;
+
+    }
+
+	// fill sudoku board, then remove numExcluded tiles
     public void generate(int numExcluded) {
         fillBoard(0, 0);
 	int randomRow;
@@ -60,8 +94,14 @@ public class Board {
 	for (int i = 0; i < numExcluded; i++) {
 		randomRow = (int)(Math.random()*9);
 		randomCol = (int)(Math.random()*9);
-		if (_board[randomRow][randomCol] != 0)
+		while (_isModifiable[randomRow][randomCol]) {
+			randomRow = (int)(Math.random()*9);
+			randomCol = (int)(Math.random()*9);
+		}
+		if (_board[randomRow][randomCol] != 0) {
 			_board[randomRow][randomCol] = 0;
+			_isModifiable[randomRow][randomCol] = true;
+		}
 	}
     }
 
@@ -109,18 +149,20 @@ public class Board {
     }
 
     public boolean isValidMove(int row, int col, int num) {
+	//check row
 	for (int searchCol = 0; searchCol < 9; searchCol++) {
 		if (num == _board[row][searchCol]) {
 			return false;
 		}
 	}
-
+		//check col
         for (int searchRow = 0; searchRow < 9; searchRow++) {
                 if (num == _board[searchRow][col]) {
                         return false;
                 }
         }
 
+	//check 3x3
 	row -= row % 3;
 	col -= col % 3;
 	for (int searchRow = row; searchRow < row + 3; searchRow++)
@@ -130,6 +172,7 @@ public class Board {
 	return true;
     }
 
+	//Check if board is filled. Used for user gameplay
     public boolean isFilled() {
 	for (int row = 0; row < 9; row++)
 		for (int col = 0; col < 9; col++)
@@ -138,10 +181,11 @@ public class Board {
 	return true;
     }
 
-    // checks if puzzle is solved
+    // checks if puzzle is solved. Used for user gameplay
     public boolean isSolved() {
         boolean[] found;
 
+	// check if rows are valid
 	for (int row = 0; row < 9; row++) {
 		found = new boolean[9];
 		for (int col = 0; col < 9; col++) {
@@ -152,6 +196,7 @@ public class Board {
 		}
 	}
 
+		// check if columns are valid
         for (int col = 0; col < 9; col++) {
                 found = new boolean[9];
                 for (int row = 0; row < 9; row++) {
@@ -162,6 +207,7 @@ public class Board {
                 }
         }
 
+	// check if each 3x3 section is valid
 	for (int outerBoxRow = 0; outerBoxRow < 3; outerBoxRow++) {
 		for (int outerBoxCol = 0; outerBoxCol < 3; outerBoxCol++) {
 			found = new boolean[9];
