@@ -3,6 +3,7 @@ Gabriel Thompson
 Weichen Liu
 Yat Long Chan
 pd 8
+time spent: 2.4hrs
 ---------------------
 5UD0KU
 
@@ -10,28 +11,33 @@ pd 8
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - Comprehended, revised, tested, and implemented algorithm for generating random, solvable sudoku boards
+    -> Was a painful yet fulfilling process
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - n/a, as of 05-26
 
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - Front-end (Processing visual side)
+ - Sudoku solver part
+ - Hexademical option
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - How to use recursive backtracking to generate valid sudoku boards
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - Decided to remove overloaded constructor that takes in size of board as argument
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
- -
+ - GABRIEL SHOULD MAKE SURE THAT HIS VOLUME ISNT ACCIDENTALLY MUTED FOR 10 MINUTES
+ - It is extremely helpful to write pseudocode before Java, and to test your algorithm
+   first to see if it makes sense
 
 ||||||||||||||||||||||||||||||||||||||||||
 
@@ -52,10 +58,27 @@ tales of wisdom gained...
 Gabriel :: Create Repo
 ==============================================================
 
-2022-05-25
+2022-05-25 (0.4hrs)
 --------------------------------------------------------------
-All :: Finalize project idea, solidify plan
-Gabriel :: update readme, add flag, add devlog template
+ALL      :: Finalize project idea, solidify plan
+Gabriel  :: update readme, add flag, add devlog template
 Yat Long :: add .gitignore, update devlog
-Weichen Liu :: added some git flavor markdown to the readMe
+Weichen  :: added some git flavor markdown to the readMe
 ==============================================================
+
+2022-05-26 (2hrs)
+--------------------------------------------------------------
+ALL      :: Completed proposal, formulated gameplay sequence
+            Discussed, prototyped, and implemented algorithm
+	    for generating random sudoku boards.
+	    Inspiration: https://dlbeer.co.nz/articles/sudoku.html
+Gabriel  :: Drove for today, wrote toString(), generate(),
+            fillBoard()
+            Accidentally worked on isSolved() for 10 minutes
+            without noticing that my audio was off and Yat Long
+            and Weichen were trying to talk
+Yat Long :: Majorly helped in debugging parts of the isSolved(),
+            isValidMove(), isFilled()
+Weichen  :: Wrote much of gameplay section of proposal
+==============================================================
+
