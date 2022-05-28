@@ -3,7 +3,7 @@ Gabriel Thompson
 Weichen Liu
 Yat Long Chan
 pd 8
-time spent: 2.4hrs
+time spent: 3.1hrs
 ---------------------
 5UD0KU
 
@@ -82,3 +82,12 @@ Yat Long :: Majorly helped in debugging parts of the isSolved(),
 Weichen  :: Wrote much of gameplay section of proposal
 ==============================================================
 
+2022-05-26 (0.7 hrs, class period)
+--------------------------------------------------------------
+ALL      :: implemented recursive backtracking solver.
+Gabriel  :: Great Help. Wrote the code for fillBoard() yesterday, 
+            which is very similar to solveHelper()
+Yat Long :: Drove for today, wrote solve() and solveHelper()
+Weichen  :: Brought up great idea of using the _isModifiable array
+            in multiple methods
+============================================================== 
