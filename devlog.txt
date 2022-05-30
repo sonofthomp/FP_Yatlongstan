@@ -101,5 +101,5 @@ Yat Long :: Ported Board class to Processing. Begin mapping
 
 2022-05-30 (0.5 hrs)
 --------------------------------------------------------------
-Weichen Liu :: finalized UML
+Weichen :: finalized UML
 ============================================================== 
