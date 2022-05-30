@@ -98,3 +98,8 @@ Weichen  :: Brought up great idea of using the _isModifiable array
 Yat Long :: Ported Board class to Processing. Begin mapping
             the board to a window in Processing.
 ============================================================== 
+
+2022-05-30 (0.5 hrs)
+--------------------------------------------------------------
+Weichen Liu :: finalized UML
+============================================================== 
