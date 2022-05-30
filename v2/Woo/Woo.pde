@@ -6,7 +6,7 @@ int boardY;
 
 void setup() {
   boardX = boardY = -1;
-  size(600, 600);
+  size(700, 700); // width and height should be ==
   gameBoard = new Board();
   gameBoard.generate(70);
 }
@@ -20,8 +20,12 @@ void drawBoard() {
   int tileSize = (width) / 9 + 1;
 
   // highlight selected tile
-  if (boardX > - 1 && gameBoard.isModifiable(boardY, boardX)) {
-    fill(175,238,238);
+  if (boardX > - 1) {
+    if (gameBoard.isModifiable(boardY, boardX)) {
+      fill(175, 238, 238);
+    } else {
+      fill(255);
+    }
     stroke(142);
     strokeWeight(3);
     rect(tileSize * boardX, tileSize * boardY, tileSize, tileSize);
@@ -67,5 +71,5 @@ void drawBoard() {
 
 void mousePressed() {
   boardX = int(map(mouseX, 0, width, 0, 9));
-  boardY = int(map(mouseY, 0, width, 0, 9));
+  boardY = int(map(mouseY, 0, height, 0, 9));
 }
