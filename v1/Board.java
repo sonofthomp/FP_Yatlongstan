@@ -67,8 +67,19 @@ public class Board {
 			return solveHelper(startRow, startCol + 1);
 		}
        }
+	   int[] nums = new int[9];
+	   for (int i = 0; i < 9; i++)
+	   		nums[i] = i + 1;
+	   for (int i = 0; i < 30; i++) {
+		   int r1 = (int)(Math.random() * 9);
+		   int r2 = (int)(Math.random() * 9);
+		   int temp = nums[r1];
+		   nums[r1] = nums[r2];
+		   nums[r2] = temp;
+	}
 
-       for (int i = 1; i <= 9; i++ ) {
+ 
+       for (int i : nums) {
 		if (isValidMove(startRow, startCol, i)) {
 			setTile(startRow, startCol, i);
 	   		boolean solved;
