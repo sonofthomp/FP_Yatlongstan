@@ -209,6 +209,9 @@ class Board {
     for (int row = 0; row < 9; row++) {
       found = new boolean[9];
       for (int col = 0; col < 9; col++) {
+        if (board[row][col] == 0) {
+          return false;
+        }
         if (found[board[row][col] - 1]) {
           return false;
         }
