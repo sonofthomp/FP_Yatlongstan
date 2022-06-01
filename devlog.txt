@@ -3,7 +3,7 @@ Gabriel Thompson
 Weichen Liu
 Yat Long Chan
 pd 8
-time spent: 3.1hrs
+time spent: 5.9hrs
 ---------------------
 5UD0KU
 
@@ -11,22 +11,28 @@ time spent: 3.1hrs
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - Comprehended, revised, tested, and implemented algorithm for generating random, solvable sudoku boards
+ - Comprehended, revised, tested, and implemented algorithm for generating random, solvable sudoku boards.'
+   Also came up with similar algorithm for solving sudokus.
     -> Was a painful yet fulfilling process
+  - Ported the Board class from Processing to Java, and made Processing display the board and accept input
+  - Created prototype of menu
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - n/a, as of 05-26
+ - n/a, as of 06-01
 
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - Front-end (Processing visual side)
- - Sudoku solver part
  - Hexademical option
+ - Menu that leads to the different gamemodes
+ - Timer
+ - Leaderboard
+ - (Possibly) A visualization of the recursive stack while solving the sudoku
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  - How to use recursive backtracking to generate valid sudoku boards
+ - How to take user input in Processing
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,6 +45,7 @@ tales of wisdom gained...
  - It is extremely helpful to write pseudocode before Java, and to test your algorithm
    first to see if it makes sense
  - Don't declare class in pde file that is being run
+ - Flowcharts are very useful when creating interconnecting different sections of the GUI
 
 ||||||||||||||||||||||||||||||||||||||||||
 
@@ -101,5 +108,23 @@ Yat Long :: Ported Board class to Processing. Begin mapping
 
 2022-05-30 (0.5 hrs)
 --------------------------------------------------------------
-Weichen :: finalized UML
+Weichen  :: finalized UML
 ============================================================== 
+
+2022-05-31 (0.7 hrs, class period)
+--------------------------------------------------------------
+ALL      :: Came up with idea of home screen
+Yat Long :: Came up with color screen and spacing for homescreen
+Gabriel  :: Adjusted Yat Long's code for how the sudoku board is
+            displayed
+Weichen  :: Came up with how the key press detection should work
+==============================================================
+
+2022-05-31 (1.1hrs, after school)
+--------------------------------------------------------------
+ALL      :: Decided to track the state of the game with a MODE
+            variable
+Gabriel  :: Drove, came up with the organization of the game
+            flow into "GENERATE BOARD" and "HAVE COMPUTER SOLVE
+	    BOARD"
+==============================================================
