@@ -3,7 +3,8 @@ class DifficultyMenu implements Menu{
   
   void show(){}
   
-  
+  void mousePressed() {
+  }
   
   
   

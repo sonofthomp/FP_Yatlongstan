@@ -24,7 +24,7 @@ class Board {
   int getTile(int r, int c) {
     return board[r][c];
   }
-  
+
   // return if tile is modifiable
   boolean isModifiable(int r, int c) {
     return isModifiable[r][c];
@@ -66,45 +66,32 @@ class Board {
    make move
    recursively call next tile
    */
- boolean solveHelper(int startRow, int startCol) {
-  if (startRow > 8 || startCol > 8)
-    return true;
-       if (!isModifiable[startRow][startCol]) {
-    if (startCol == 8) {
-      return solveHelper(startRow + 1, 0);
-    } else {
-      return solveHelper(startRow, startCol + 1);
-    }
-       }
-     int[] nums = new int[9];
-     for (int i = 0; i < 9; i++)
-         nums[i] = i + 1;
-     for (int i = 0; i < 30; i++) {
-       int r1 = (int)(Math.random() * 9);
-       int r2 = (int)(Math.random() * 9);
-       int temp = nums[r1];
-       nums[r1] = nums[r2];
-       nums[r2] = temp;
-  }
-
- 
-       for (int i : nums) {
-    if (isValidMove(startRow, startCol, i)) {
-      setTile(startRow, startCol, i);
-         boolean solved;
+  boolean solveHelper(int startRow, int startCol) {
+    if (startRow > 8 || startCol > 8)
+      return true;
+    if (!isModifiable[startRow][startCol]) {
       if (startCol == 8) {
-        solved = solveHelper(startRow + 1, 0);
-           } else {
-        solved = solveHelper(startRow, startCol + 1);
-           }
-       if (solved) return true;
-
+        return solveHelper(startRow + 1, 0);
+      } else {
+        return solveHelper(startRow, startCol + 1);
+      }
     }
-       }
-  setTile(startRow, startCol, 0);
-  return false;
 
+    for (int i = 1; i <= 9; i ++) {
+      if (isValidMove(startRow, startCol, i)) {
+        setTile(startRow, startCol, i);
+        boolean solved;
+        if (startCol == 8) {
+          solved = solveHelper(startRow + 1, 0);
+        } else {
+          solved = solveHelper(startRow, startCol + 1);
+        }
+        if (solved) return true;
+      }
     }
+    setTile(startRow, startCol, 0);
+    return false;
+  }
 
   // fill sudoku board, then remove numExcluded tiles
   void generate(int numExcluded) {

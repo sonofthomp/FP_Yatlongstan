@@ -96,8 +96,21 @@ void drawBoard() {
 }
 
 void mousePressed() {
-  boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, 9));
-  boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, 9));
+  switch (mode) {
+  case 1:
+    menu.mousePressed();
+    break;
+  case 2:
+    break;
+  case 3:
+    break;
+  case 4:
+    boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, 9));
+    boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, 9));
+    break;
+  default:
+    break;
+  }
 }
 
 void keyPressed() {
