@@ -12,8 +12,7 @@
 
 ## HOW-TO-LAUNCH:
 ```
-javac *java
-java Woo
+processing-java --sketch=/path/to/Woo --run
 ```
 <p align="center">
  <img src="/flag.jpg"/>

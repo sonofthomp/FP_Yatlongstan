@@ -4,6 +4,7 @@ Board gameBoard;
 int boardX;
 int boardY;
 int mode;
+boolean player;
 Menu menu;
 
 int leftMargin = 50;
@@ -13,40 +14,43 @@ void setup() {
   boardX = boardY = -1;
   size(1000, 750); // width and height should be ==
   mode = 1;
+  player = false;
   gameBoard = new Board();
-  menu = new StartMenu();
 }
 
 
 
 void draw() {
   background(255);
+  strokeWeight(0);
   switch (mode) {
   case 1:
-    menu.show();
+    menu = new StartMenu();
     break;
   case 2:
     menu = new DifficultyMenu();
-    menu.show();
     break;
   case 3:
     menu = new BoardSizeMenu();
-    menu.show();
     break;
-  case 4:
-    drawBoard();
+  case 6:
+    menu = new VictoryScreen();
     break;
   default:
     break;
   }
-  //drawBoard();
+  if (mode == 4 || mode == 5) {
+    drawBoard();
+  } else {
+    menu.show();
+  }
 }
 
 void drawBoard() {
   int tileSize = 71;//(height) / 9 + 1;
 
   // highlight selected tile
-  if (boardX > - 1) {
+  if (boardX > -1 && boardX < 9 && boardY < 9) {
     if (gameBoard.isModifiable(boardY, boardX)) {
       fill(175, 238, 238);
     } else {
@@ -88,7 +92,7 @@ void drawBoard() {
 
   // borders for each 3x3 section
   stroke(0);
-  strokeWeight(7);
+  strokeWeight(5);
   for (int i = 3; i < gameBoard.length(); i += 3) {
     line(tileSize * i + leftMargin, 0 + topMargin, tileSize * i + leftMargin, 639 + topMargin);
     line(0 + leftMargin, tileSize * i + topMargin, 639 + leftMargin, tileSize * i + topMargin);
@@ -96,26 +100,22 @@ void drawBoard() {
 }
 
 void mousePressed() {
-  switch (mode) {
-  case 1:
-    menu.mousePressed();
-    break;
-  case 2:
-    break;
-  case 3:
-    break;
-  case 4:
+
+  if (mode == 4 || mode == 5) {
     boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, 9));
     boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, 9));
-    break;
-  default:
-    break;
+  } else {
+    menu.mousePressed();
   }
 }
 
 void keyPressed() {
+
   if (key > 48 && key < 58 && gameBoard.isModifiable(boardY, boardX)) {
     int value = key - 48;
     gameBoard.setTile(boardY, boardX, value);
+    if (gameBoard.isSolved()) {
+      mode = 6;
+    }
   }
 }

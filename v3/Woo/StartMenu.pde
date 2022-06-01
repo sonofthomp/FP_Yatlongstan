@@ -3,7 +3,7 @@ class StartMenu implements Menu {
   float b1X = width * .1;
   float b2X = width * .55;
   float bY = height / 2;
-
+  
   StartMenu() {
   }
 
@@ -21,17 +21,18 @@ class StartMenu implements Menu {
     fill(0);
     textAlign(CENTER);
     text("Solve a generated puzzle", width * .1 + length / 2, height / 2 + (length) / 2);
-    text("Create a puzzle", width * .55 + length / 2, height / 2 + (length) / 2);
-
+    text("Create a puzzle (TO BE IMPLEMENTED)", width * .55 + length / 2, height / 2 + (length) / 2);
   }
 
   void mousePressed() {
     if (mouseX > b1X && mouseX < (b1X + length) && mouseY > bY && mouseY < bY + length / 2) {
-      mode = 2;
+      //mode = 2;
+      mode = 3;
+      player = true;
     }
-    
+
     if (mouseX > b2X && mouseX < (b2X + length) && mouseY > bY && mouseY < bY + length / 2) {
-      mode = 5;
+      //mode = 5;
     }
   }
 }

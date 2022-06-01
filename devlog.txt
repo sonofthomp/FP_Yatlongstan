@@ -128,3 +128,15 @@ Gabriel  :: Drove, came up with the organization of the game
             flow into "GENERATE BOARD" and "HAVE COMPUTER SOLVE
 	    BOARD"
 ==============================================================
+
+2022-06-1 (0.7 hrs, in class)
+--------------------------------------------------------------
+ALL      :: Start implementing the various menus
+Weichen  :: Drove, created interface Menu and implementations
+            of Menu
+==============================================================
+
+2022-06-1 (0.5 hrs, after school)
+--------------------------------------------------------------
+Yat Long  :: Finished a basic version of the menu system
+==============================================================
