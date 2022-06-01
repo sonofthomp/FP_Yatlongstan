@@ -9,6 +9,7 @@ BASIC SUDOKU RULES:
 public class Board {
     private int _board[][];
     private boolean _isModifiable[][];
+    private int COUNT;
 
     // default constructor: 9 by 9 board
     public Board() {
@@ -41,7 +42,9 @@ public class Board {
 
 	//recursive backtracking to solve sudoku puzzle
     public void solve() {
+	COUNT = 0;
 	solveHelper(0,0);
+	System.out.println(COUNT);
     }
 
         /*
@@ -58,6 +61,7 @@ public class Board {
                                 recursively call next tile
         */
     public boolean solveHelper(int startRow, int startCol) {
+	COUNT++;
 	if (startRow > 8 || startCol > 8)
 		return true;
        if (!_isModifiable[startRow][startCol]) {
@@ -82,6 +86,7 @@ public class Board {
        for (int i : nums) {
 		if (isValidMove(startRow, startCol, i)) {
 			setTile(startRow, startCol, i);
+			COUNT++;
 	   		boolean solved;
 			if (startCol == 8) {
 				solved = solveHelper(startRow + 1, 0);
@@ -93,6 +98,7 @@ public class Board {
 		}
        }
 	setTile(startRow, startCol, 0);
+	COUNT++;
 	return false;
 
     }
