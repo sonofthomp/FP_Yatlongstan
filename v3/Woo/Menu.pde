@@ -1,0 +1,6 @@
+interface Menu {
+  
+  void show(); 
+  
+}
+  
