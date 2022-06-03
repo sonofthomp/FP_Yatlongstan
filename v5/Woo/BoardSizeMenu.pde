@@ -25,11 +25,12 @@ class BoardSizeMenu implements Menu {
 
   void mousePressed() {
     if (mouseX > b1X && mouseX < (b1X + length) && mouseY > bY && mouseY < bY + length / 2) {
-      if (player == true) {
+      if (player) {
         mode = 4;
         gameBoard.generate(50);
+      } else {
+        mode = 5;
       }
-      //mode = 5;
     }
     /*
     if (mouseX > b2X && mouseX < (b2X + length) && mouseY > bY && mouseY < bY + length / 2) {
