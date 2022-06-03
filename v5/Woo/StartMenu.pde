@@ -3,7 +3,7 @@ class StartMenu implements Menu {
   float b1X = width * .1;
   float b2X = width * .55;
   float bY = height / 2;
-  
+
   StartMenu() {
   }
 
@@ -26,14 +26,12 @@ class StartMenu implements Menu {
 
   void mousePressed() {
     if (mouseX > b1X && mouseX < (b1X + length) && mouseY > bY && mouseY < bY + length / 2) {
-      //mode = 2;
-      mode = 3;
       player = true;
     }
 
     if (mouseX > b2X && mouseX < (b2X + length) && mouseY > bY && mouseY < bY + length / 2) {
-      mode = 5;
       canModify = true;
     }
+    mode = 3;
   }
 }
