@@ -3,7 +3,7 @@ Gabriel Thompson
 Weichen Liu
 Yat Long Chan
 pd 8
-time spent: 5.9hrs
+time spent: 6.6hrs
 ---------------------
 5UD0KU
 
@@ -129,14 +129,19 @@ Gabriel  :: Drove, came up with the organization of the game
 	    BOARD"
 ==============================================================
 
-2022-06-1 (0.7 hrs, in class)
+2022-06-01 (0.7 hrs, in class)
 --------------------------------------------------------------
 ALL      :: Start implementing the various menus
 Weichen  :: Drove, created interface Menu and implementations
             of Menu
 ==============================================================
 
-2022-06-1 (0.5 hrs, after school)
+2022-06-01 (0.5 hrs, after school)
 --------------------------------------------------------------
-Yat Long  :: Finished a basic version of the menu system
+Yat Long :: Finished a basic version of the menu system
+==============================================================
+
+2022-06-02 (0.7 hrs, in class)
+--------------------------------------------------------------
+ALL      ::
 ==============================================================
