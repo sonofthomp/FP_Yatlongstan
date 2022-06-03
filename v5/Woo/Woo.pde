@@ -13,7 +13,7 @@ int leftMargin = 50;
 int topMargin = 50;
 
 void setup() {
-  boardX = boardY = -1;
+  boardX = boardY = 0;
   size(1000, 750); // width and height should be ==
   mode = 1;
   player = false;
@@ -132,10 +132,8 @@ void drawBoard() {
 void mousePressed() {
 
   if (mode == 4 || mode == 5) {
-    if ( mode == 5 && canModify) {
-      boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, 9));
-      boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, 9));
-    }
+    boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, 9));
+    boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, 9));
   } else {
     menu.mousePressed();
   }
@@ -161,11 +159,11 @@ void mousePressed() {
       canModify = true;
     }
     if (mouseX >= 740 && mouseX <= 940 && mouseY >= 330 && mouseY <= 410) {
-      gameBoard = new Board();
-      mode = 1;
+      setup();
     }
   }
 }
+
 
 
 
