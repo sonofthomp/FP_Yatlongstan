@@ -146,3 +146,8 @@ Yat Long :: Finished a basic version of the menu system
 ALL      :: Fixed the computer solve method for sudoku. 
 Gabriel  :: Drove and implemented the computer solve button for sudoku. 
 ==============================================================
+
+2022-06-04 (0.5 hrs, after school)
+--------------------------------------------------------------
+Weichen  :: Updated UML. 
+==============================================================
