@@ -33,14 +33,12 @@ class BoardSizeMenu implements Menu {
         mode = 5;
       }
     }
+    /*
     if (mouseX > b2X && mouseX < (b2X + length) && mouseY > bY && mouseY < bY + length / 2) {
-      gameBoard = new HexBoard();
-      if (player == true) {
-        mode = 4;
-        gameBoard.generate(140);
-      } else {
-        mode = 5;
-      }
-    }
+     if (player == true) {
+     mode = 4;
+     }
+     mode = 5;
+     } */
   }
 }
