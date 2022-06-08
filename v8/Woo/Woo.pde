@@ -29,7 +29,7 @@ void draw() {
   strokeWeight(0);
   switch (mode) {
   case 1:
-    menu = new StartMenu();
+    menu = new StartMenu(); 
     break;
   case 2:
     menu = new DifficultyMenu();
@@ -43,6 +43,7 @@ void draw() {
   default:
     break;
   }
+  // 4 == play a puzzle, 5 == create a puzzle
   if (mode == 4 || mode == 5) {
       screen.show();
   } else {

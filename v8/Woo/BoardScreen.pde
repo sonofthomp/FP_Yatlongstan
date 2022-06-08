@@ -3,17 +3,21 @@ class BoardScreen {
   }
 
   void keyPressed() {
+
+    // if in board
     if (boardY < gameBoard.length() && boardY >= 0 && boardX < gameBoard.length() && boardX >= 0) {
+      // if mode == 4 or board isn't solved by cpu
       if (mode == 4 || canModify) {
-        if (((key >= 48 && key < 58) || (key >= 97 && key <= 102)) && (mode == 5 || gameBoard.isModifiable(boardY, boardX))) {
+        //check if key is 0-9, a-f, and if ur making a board or tile is modifiable
+        if (((key >= 48 && key < 58) || ( (key >= 97 && key <= 102) && gameBoard.length() == 16)) && (mode == 5 || gameBoard.isModifiable(boardY, boardX))) {
           int value;
           if (key < 97) {
             value = key - 48;
             if (value == 0 && gameBoard.length() == 16) {
-              value = 10;
+              value = 10; // 0 is mapped to 10 on the board array
             }
           } else {
-            value = key - 86;
+              value = key - 86; // 11-16
           }
           gameBoard.setTile(boardY, boardX, value);
           if (mode == 4 && gameBoard.isSolved()) {
@@ -23,12 +27,14 @@ class BoardScreen {
       }
     }
 
-    if (keyCode == BACKSPACE) {
-      if (gameBoard.isModifiable(boardY, boardX)) {
+    // remove number from tile
+    if ( keyCode == BACKSPACE) {
+      if (mode == 5 || gameBoard.isModifiable(boardY, boardX)) {
         gameBoard.setTile(boardY, boardX, 0);
       }
     }
 
+    // arrow keys
     if (keyCode == LEFT && boardX > 0) {
       boardX--;
     } else if (keyCode == RIGHT && boardX < gameBoard.length() - 1) {
@@ -39,7 +45,8 @@ class BoardScreen {
       boardY++;
     }
 
-    if (gameBoard.isValidBoard()) {
+    // set bozo if in mode 5
+    if (mode == 4 || gameBoard.isValidBoard()) {
       isBozo = false;
     } else {
       isBozo = true;
@@ -53,6 +60,7 @@ class BoardScreen {
     }
 
 
+    // SOLVE BUTTON IN MODE 5
     if (mouseX >= 740 && mouseX <= 940 && mouseY >= 70 && mouseY <= 150) {
       if (mode == 5) {
         if (canModify && !isBozo) {
@@ -71,10 +79,12 @@ class BoardScreen {
           canModify = false;
         }
       } else {
+        // START MENU IN MODE 4
         setup();
       }
     }
 
+    // CLEAR BOARD IN MODE 5
     if (mouseX >= 740 && mouseX <= 940 && mouseY >= 200 && mouseY <= 280) {
       if (mode == 5) {
         if (gameBoard.length() == 9)
@@ -84,11 +94,13 @@ class BoardScreen {
         canModify = true;
         boardX = boardY = 0;
       } else {
+        // QUIT IN MODE 4
         exit();
       }
     }
     if (mouseX >= 740 && mouseX <= 940 && mouseY >= 330 && mouseY <= 410) {
       if (mode == 5) {
+        // START MENU IN MODE 5
         setup();
       }
     }
@@ -128,24 +140,24 @@ class BoardScreen {
           textSize(25);
           String text = "";
           switch (gameBoard.getTile(row, col)) {
-            case 11:
-              text = "a";
-              break;
-            case 12:
-              text = "b";
-              break;
-            case 13:
-              text = "c";
-              break;
-            case 14:
-              text = "d";
-              break;
-            case 15:
-              text = "e";
-              break;
-            case 16:
-              text = "f";
-              break;
+          case 11:
+            text = "a";
+            break;
+          case 12:
+            text = "b";
+            break;
+          case 13:
+            text = "c";
+            break;
+          case 14:
+            text = "d";
+            break;
+          case 15:
+            text = "e";
+            break;
+          case 16:
+            text = "f";
+            break;
           }
           if (gameBoard.getTile(row, col) <= 10) {
             text = str(gameBoard.getTile(row, col) % 10);
@@ -190,7 +202,7 @@ class BoardScreen {
         textSize(40);
         text("BOZO", mouseX, mouseY);
       }
-      
+
       if (gameBoard.isSolved()) {
         fill(255, 128, 255);
         strokeWeight(2);

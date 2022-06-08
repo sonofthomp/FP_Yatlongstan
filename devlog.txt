@@ -3,7 +3,7 @@ Gabriel Thompson
 Weichen Liu
 Yat Long Chan
 pd 8
-time spent: 6.6hrs
+time spent: 10.4hrs
 ---------------------
 5UD0KU
 
@@ -16,15 +16,14 @@ OBSTACLES OVERCOME
     -> Was a painful yet fulfilling process
   - Ported the Board class from Processing to Java, and made Processing display the board and accept input
   - Created prototype of menu
+  - janky hitbox 
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - n/a, as of 06-01
+ - n/a, as of 06-08
 
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - Hexademical option
- - Menu that leads to the different gamemodes
  - Timer
  - Leaderboard
  - (Possibly) A visualization of the recursive stack while solving the sudoku
@@ -150,4 +149,21 @@ Gabriel  :: Drove and implemented the computer solve button for sudoku.
 2022-06-04 (0.5 hrs, after school)
 --------------------------------------------------------------
 Weichen  :: Updated UML. 
+==============================================================
+
+2022-06-06 (0.7 hrs, in class)
+--------------------------------------------------------------
+ALL      :: Did some debugging, start drafting hexsudoku
+            implementation. 
+==============================================================
+
+2022-06-07 (0.7 hrs, in class)
+--------------------------------------------------------------
+ALL      :: Start hexsudoku code. Refactor Board class. 
+==============================================================
+
+2022-06-08 (0.7 hrs, in class)
+--------------------------------------------------------------
+ALL      :: Complete hexsudoku implementation.
+            Display time for machine to solve a puzzle
 ==============================================================
