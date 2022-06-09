@@ -11,8 +11,8 @@ class GeneralBoard {
   boolean isModifiable[][];
   int size;
 
-  // default constructor: n by n board
-  public GeneralBoard(int newSize) {
+  // constructor: create n by n board
+   GeneralBoard(int newSize) {
     size = newSize;
     board = new int[size * size][size * size];
     isModifiable = new boolean[size * size][size * size];

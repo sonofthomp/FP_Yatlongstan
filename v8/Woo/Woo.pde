@@ -63,10 +63,12 @@ void draw() {
 
 
 void mousePressed() {
-  if (mode == 4 || mode == 5) {
-    screen.mousePressed();
-  } else {
-    menu.mousePressed();
+  if (mouseButton == LEFT) {
+    if (mode == 4 || mode == 5) {
+      screen.mousePressed();
+    } else {
+      menu.mousePressed();
+    }
   }
 }
 

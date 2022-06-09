@@ -25,6 +25,7 @@ UNRESOLVED ISSUES
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  - Timer
+ - difficulty menu
  - Leaderboard
  - (Possibly) A visualization of the recursive stack while solving the sudoku
 
