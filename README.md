@@ -30,12 +30,14 @@
 
 ### KEYS TO PRESS:
 #### REGULAR (9x9) SUDOKU:
-1. `1-9` to place numbers
-2. `0` or `BACKSPACE` to remove number
+1. arrow keys or mouse click to select tile
+2. `1-9` to place numbers
+3. `0` or `BACKSPACE` to remove number
 
 #### HEX (16x16) SUDOKU:
-1. `0-9` and `A-F` to place numbers
-2. `BACKSPACE` to remove number
+1. arrow keys or mouse click to select tile
+2. `0-9` and `A-F` to place numbers
+3. `BACKSPACE` to remove number
 
 
 <p align="center">
