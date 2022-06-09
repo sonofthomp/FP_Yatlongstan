@@ -7,9 +7,8 @@ BASIC SUDOKU RULES:
  */
 
 class NineBoard extends GeneralBoard {
-  
+
   public NineBoard() {
     super(3);
   }
-  
 }

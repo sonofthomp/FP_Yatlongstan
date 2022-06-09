@@ -1,3 +1,12 @@
+/*
+mode 1 == start menu
+mode 2 == set difficulty
+mode 3 ==  set board size 
+mode 4 == user solves board 
+mode 5 == user creates a board
+mode 6 == victory screen
+*/
+
 class BoardSizeMenu implements Menu {
   float length = width * .35;
   float b1X = width * .1;
@@ -24,6 +33,7 @@ class BoardSizeMenu implements Menu {
   }
 
   void mousePressed() {
+    //9x9
     if (mouseX > b1X && mouseX < (b1X + length) && mouseY > bY && mouseY < bY + length  ) {
       gameBoard = new NineBoard();
       if (player) {
@@ -33,6 +43,7 @@ class BoardSizeMenu implements Menu {
         mode = 5;
       }
     }
+    //16x16
     if (mouseX > b2X && mouseX < (b2X + length) && mouseY > bY && mouseY < bY + length ) {
       gameBoard = new HexBoard();
       if (player == true) {

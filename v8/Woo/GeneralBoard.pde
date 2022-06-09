@@ -156,9 +156,9 @@ class GeneralBoard {
     setTile(startRow, startCol, 0);
     return false;
   }
-  
+
   boolean isValidBoard() {
-    //check row
+    // check rows
     int[] seen;
     for (int row = 0; row < board.length; row++) {
       seen = new int[board.length];
@@ -172,7 +172,8 @@ class GeneralBoard {
         seen[board[row][col] - 1]++;
       }
     }
-    
+
+    // check cols
     for (int col = 0; col < board.length; col++) {
       seen = new int[board.length];
       for (int row = 0; row < board.length; row++) {
@@ -185,7 +186,8 @@ class GeneralBoard {
         seen[board[row][col] - 1]++;
       }
     }
-    
+
+    // check squares
     for (int boxRow = 0; boxRow < size; boxRow++) {
       for (int boxCol = 0; boxCol < size; boxCol++) {
         seen = new int[board.length];
@@ -202,7 +204,7 @@ class GeneralBoard {
         }
       }
     }
-    
+
     return true;
   }
 
@@ -285,11 +287,11 @@ class GeneralBoard {
 
     return true;
   }
-  
+
   void setModifiability(int row, int col, boolean val) {
     isModifiable[row][col] = val;
   }
-  
+
   int getSize() {
     return size;
   }

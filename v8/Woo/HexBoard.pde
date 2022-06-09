@@ -7,9 +7,8 @@ BASIC SUDOKU RULES:
  */
 
 class HexBoard extends GeneralBoard {
-  
+
   public HexBoard() {
     super(4);
   }
-  
 }

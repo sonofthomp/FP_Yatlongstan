@@ -1,3 +1,12 @@
+/*
+mode 1 == start menu
+mode 2 == set difficulty
+mode 3 ==  set board size 
+mode 4 == user solves board 
+mode 5 == user creates a board
+mode 6 == victory screen
+*/
+
 class StartMenu implements Menu {
   float length = width * .35;
   float b1X = width * .1;
@@ -24,12 +33,14 @@ class StartMenu implements Menu {
     text("Create a puzzle", width * .55 + length / 2, height / 2 + (length) / 2);
   }
 
+  // solve puzzle 
   void mousePressed() {
     if (mouseX > b1X && mouseX < (b1X + length) && mouseY > bY && mouseY < bY + length) {
       player = true;
       mode = 3;
     }
 
+    // create puzzle
     if (mouseX > b2X && mouseX < (b2X + length) && mouseY > bY && mouseY < bY + length) {
       canModify = true;
       mode = 3;

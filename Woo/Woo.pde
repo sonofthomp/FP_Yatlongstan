@@ -1,3 +1,12 @@
+/*
+mode 1 == start menu
+ mode 2 == set difficulty
+ mode 3 ==  set board size
+ mode 4 == user solves board
+ mode 5 == user creates a board
+ mode 6 == victory screen
+ */
+
 GeneralBoard gameBoard;
 
 // x and y mapped from mouse clicked to array indices
@@ -10,10 +19,12 @@ boolean canModify;
 Menu menu;
 BoardScreen screen;
 
+int timeToSolve = 0;
 int leftMargin = 50;
 int topMargin = 50;
 
 void setup() {
+  surface.setTitle("SUDOKU");
   boardX = boardY = 0;
   size(1000, 750); // width and height should be ==
   mode = 1;
@@ -30,9 +41,9 @@ void draw() {
   case 1:
     menu = new StartMenu();
     break;
-  case 2:
-    menu = new DifficultyMenu();
-    break;
+    //case 2:
+    // menu = new DifficultyMenu();
+    // break;
   case 3:
     menu = new BoardSizeMenu();
     break;
@@ -42,6 +53,7 @@ void draw() {
   default:
     break;
   }
+  // 4 == play a puzzle, 5 == create a puzzle
   if (mode == 4 || mode == 5) {
     screen.show();
   } else {

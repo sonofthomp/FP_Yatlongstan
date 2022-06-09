@@ -17,7 +17,7 @@ class BoardScreen {
               value = 10; // 0 is mapped to 10 on the board array
             }
           } else {
-              value = key - 86; // 11-16
+            value = key - 86; // 11-16
           }
           gameBoard.setTile(boardY, boardX, value);
           if (mode == 4 && gameBoard.isSolved()) {
@@ -54,54 +54,65 @@ class BoardScreen {
   }
 
   void mousePressed() {
-    if (mouseX >= leftMargin && mouseX <= 630 + leftMargin && mouseY >= topMargin && mouseY <= 630 + topMargin) {
-      boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, gameBoard.length()));
-      boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, gameBoard.length()));
-    }
+    // only left click
+    if (mouseButton == LEFT) {
+      // if mouse is on board, map mouse coords to board index
+      if (mouseX >= leftMargin && mouseX <= 630 + leftMargin && mouseY >= topMargin && mouseY <= 630 + topMargin) {
+        boardX = int(map(mouseX, leftMargin, 630 + leftMargin, 0, gameBoard.length()));
+        boardY = int(map(mouseY, topMargin, 630 + topMargin, 0, gameBoard.length()));
+      }
 
 
-    // SOLVE BUTTON IN MODE 5
-    if (mouseX >= 740 && mouseX <= 940 && mouseY >= 70 && mouseY <= 150) {
-      if (mode == 5) {
-        if (canModify && !isBozo) {
-          for (int row = 0; row < gameBoard.length(); row++) {
-            for (int col = 0; col < gameBoard.length(); col++) {
-              if (gameBoard.getTile(row, col) == 0) {
-                gameBoard.setModifiability(row, col, true);
+      // SOLVE BUTTON IN MODE 5
+      if (mouseX >= 740 && mouseX <= 940 && mouseY >= 70 && mouseY <= 150) {
+        if (mode == 5) {
+          if (canModify && !isBozo) {
+            for (int row = 0; row < gameBoard.length(); row++) {
+              for (int col = 0; col < gameBoard.length(); col++) {
+                if (gameBoard.getTile(row, col) == 0) {
+                  gameBoard.setModifiability(row, col, true);
+                }
               }
             }
+            int startTime = millis();
+            gameBoard.solve();
+            int endTime = millis();
+            timeToSolve = endTime - startTime;
+
+            canModify = false;
           }
-          int startTime = millis();
-          gameBoard.solve();
-          int endTime = millis();
-          timeToSolve = endTime - startTime;
-
-          canModify = false;
+        } else {
+          // START MENU IN MODE 4
+          setup();
         }
-      } else {
-        // START MENU IN MODE 4
-        setup();
       }
-    }
 
-    // CLEAR BOARD IN MODE 5
-    if (mouseX >= 740 && mouseX <= 940 && mouseY >= 200 && mouseY <= 280) {
-      if (mode == 5) {
-        if (gameBoard.length() == 9)
-          gameBoard = new NineBoard();
-        else
-          gameBoard = new HexBoard();
-        canModify = true;
-        boardX = boardY = 0;
-      } else {
-        // QUIT IN MODE 4
-        exit();
+      // CLEAR BOARD IN MODE 5
+      if (mouseX >= 740 && mouseX <= 940 && mouseY >= 200 && mouseY <= 280) {
+        if (mode == 5) {
+          if (gameBoard.length() == 9)
+            gameBoard = new NineBoard();
+          else
+            gameBoard = new HexBoard();
+          canModify = true;
+          boardX = boardY = 0;
+        } else {
+          // QUIT IN MODE 4
+          exit();
+        }
       }
-    }
-    if (mouseX >= 740 && mouseX <= 940 && mouseY >= 330 && mouseY <= 410) {
-      if (mode == 5) {
-        // START MENU IN MODE 5
-        setup();
+      if (mouseX >= 740 && mouseX <= 940 && mouseY >= 330 && mouseY <= 410) {
+        if (mode == 5) {
+          // START MENU IN MODE 5
+          setup();
+        }
+      }
+
+      if (mouseX >= 740 && mouseX <= 940 && mouseY >= 460 && mouseY <= 540) {
+        if (mode == 5) {
+          // exit IN MODE 5
+          exit();
+        }
       }
     }
   }
@@ -176,6 +187,7 @@ class BoardScreen {
     }
 
     if (mode == 5) {
+      // button to solve board
       fill(128, 128, 255);
       strokeWeight(2);
       rect(740, 70, 200, 80);
@@ -183,6 +195,7 @@ class BoardScreen {
       textSize(40);
       text("SOLVE", 840, 123);
 
+      // button to clear board
       fill(128, 128, 255);
       strokeWeight(2);
       rect(740, 200, 200, 80);
@@ -190,6 +203,7 @@ class BoardScreen {
       textSize(35);
       text("CLEAR", 840, 253);
 
+      // button to go to start menu
       fill(128, 128, 255);
       strokeWeight(2);
       rect(740, 330, 200, 80);
@@ -197,21 +211,32 @@ class BoardScreen {
       textSize(35);
       text("START MENU", 840, 383);
 
+      // button to quit
+      fill(128, 128, 255);
+      strokeWeight(2);
+      rect(740, 460, 200, 80);
+      fill(255);
+      textSize(35);
+      text("QUIT", 840, 513);
+
       if (isBozo) {
+        // display bozo if board is invalid
         fill(255, 0, 0);
         textSize(40);
         text("BOZO", mouseX, mouseY);
       }
 
       if (gameBoard.isSolved()) {
+        // displayy time to solve
         fill(255, 128, 255);
         strokeWeight(2);
-        rect(740, 460, 200, 80);
+        rect(740, 590, 210, 80);
         fill(255);
         textSize(35);
-        text(str((float)timeToSolve/1000) + " seconds", 840, 513);
+        text(str((float)timeToSolve/1000) + " seconds", 845, 643);
       }
     } else {
+      // start menu
       fill(128, 128, 255);
       strokeWeight(2);
       rect(740, 70, 200, 80);
@@ -219,6 +244,7 @@ class BoardScreen {
       textSize(35);
       text("START MENU", 840, 123);
 
+      // quit
       fill(128, 128, 255);
       strokeWeight(2);
       rect(740, 200, 200, 80);
