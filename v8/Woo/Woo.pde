@@ -41,9 +41,9 @@ void draw() {
   case 1:
     menu = new StartMenu();
     break;
-    //case 2:
-    // menu = new DifficultyMenu();
-    // break;
+  case 2:
+    menu = new DifficultyMenu();
+    break;
   case 3:
     menu = new BoardSizeMenu();
     break;

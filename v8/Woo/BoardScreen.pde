@@ -76,12 +76,56 @@ class BoardScreen {
           gameBoard.solve();
           int endTime = millis();
           timeToSolve = endTime - startTime;
+          println(timeToSolve);
 
           canModify = false;
         }
       } else {
         // START MENU IN MODE 4
         setup();
+      }
+    }
+    
+    if (mouseX >= 740 && mouseX <= 940 && mouseY >= 590 && mouseY <= 670) {
+      if (mode == 5) {
+        if (gameBoard.length() == 9) {
+          int[][] board = {
+            {0, 0, 0, 2, 6, 0, 7, 0, 1},
+            {6, 8, 0, 0, 7, 0, 0, 9, 0},
+            {1, 9, 0, 0, 0, 4, 5, 0, 0},
+            {8, 2, 0, 1, 0, 0, 0, 4, 0},
+            {0, 0, 4, 6, 0, 2, 9, 0, 0},
+            {0, 5, 0, 0, 0, 3, 0, 2, 8},
+            {0, 0, 9, 3, 0, 0, 0, 7, 4},
+            {0, 4, 0, 0, 5, 0, 0, 3, 6},
+            {7, 0, 3, 0, 1, 8, 0, 0, 0}
+          };
+          
+          for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+              gameBoard.setTile(row, col, board[row][col]);
+            }
+          }
+        }/*
+        if (gameBoard.length() == 16) {
+          int[][] board = {
+            {12, 2, 0, 7, 0, 0, 0, 16, 6, 15, 0, 0, 0, 3, 0, 14},
+            {0, 0, 0, 9, 12, 0, 2, 0, 0, 0, 0, 0, 16, 1, 0, 6},
+            {0, 11, 0, 13, 0, 0, 7, 0, 4, 0, 8, 0, 0, 0, 15, 0},
+            {0, 8, 0, 3, 0, 0, 1, 0, 0, 0, 16, 13, 11, 0, 4, 2},
+            {0, 0, 15, 0, 0, 0, 0, 0, 1, 6, 11, 0, 0, 0, 3, 0},
+            {3, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 16, 8, 0, 6, 12},
+            {0, 0, 0, 14, 2, 0, 0, 0, 0, 12, 0, 0, 7, 4, 0, 0},
+            {0, 12, 8, 4, 0, 0, 0, 14, 7, 0, 9, 3, 15, 0, 0, 0},
+            {0, 0, 0, 16, 3, 7, 0, 4, 5, 0, 0, 9, 0, 14, 13, 0},
+            {0, 0, 13, 8, 0, 0, 11, 0, 0, 0, 0, 12, 4, 0, 0, 0},
+            {4, 9, 0, 5, 15, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 11},
+            {0, 14, 0, 0, 0, 6, 13, 1, 0, 0, 0, 0, 0, 7, 0, 0},
+            {9, 1, 0, 15, 7, 4, 0, 0, 0, 16, 0, 0, 3, 0, 14, 0},
+            {0, 3, 0, 0, 0, 9, 0, 2, 0, 1, 0, 0, 5, 0, },
+            {},
+            {},
+          }*/
       }
     }
 
@@ -216,6 +260,14 @@ class BoardScreen {
       textSize(35);
       text("QUIT", 840, 513);
 
+      // button to example
+      fill(128, 128, 255);
+      strokeWeight(2);
+      rect(740, 590, 200, 80);
+      fill(255);
+      textSize(35);
+      text("EXAMPLE", 840, 643);
+
       if (isBozo) {
         // display bozo if board is invalid
         fill(255, 0, 0);
@@ -226,11 +278,11 @@ class BoardScreen {
       if (gameBoard.isSolved()) {
         // displayy time to solve
         fill(255, 128, 255);
-        strokeWeight(2);
-        rect(740, 590, 210, 80);
+        rect(740, 690, 200, 30);
         fill(255);
-        textSize(35);
-        text(str((float)timeToSolve/1000) + " seconds", 845, 643);
+        textSize(16);
+        strokeWeight(3);
+        text("Solved in " + str((float)timeToSolve/1000) + " seconds", 840, 710);
       }
     } else {
       // start menu
