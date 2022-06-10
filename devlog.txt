@@ -44,7 +44,7 @@ tales of wisdom gained...
  - GABRIEL SHOULD MAKE SURE THAT HIS VOLUME ISNT ACCIDENTALLY MUTED FOR 10 MINUTES
  - It is extremely helpful to write pseudocode before Java, and to test your algorithm
    first to see if it makes sense
- - Don't declare class in pde file that is being run
+ - Don't declare class in pde file that has the same name as folder
  - Flowcharts are very useful when creating interconnecting different sections of the GUI
 
 ||||||||||||||||||||||||||||||||||||||||||
