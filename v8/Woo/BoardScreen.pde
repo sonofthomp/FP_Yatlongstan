@@ -85,11 +85,11 @@ class BoardScreen {
         setup();
       }
     }
-    
+
     if (mouseX >= 740 && mouseX <= 940 && mouseY >= 590 && mouseY <= 670) {
       if (mode == 5) {
         if (gameBoard.length() == 9) {
-          int[][] board = {
+          int[][] newboard = {
             {0, 0, 0, 2, 6, 0, 7, 0, 1},
             {6, 8, 0, 0, 7, 0, 0, 9, 0},
             {1, 9, 0, 0, 0, 4, 5, 0, 0},
@@ -100,15 +100,15 @@ class BoardScreen {
             {0, 4, 0, 0, 5, 0, 0, 3, 6},
             {7, 0, 3, 0, 1, 8, 0, 0, 0}
           };
-          
+
           for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-              gameBoard.setTile(row, col, board[row][col]);
+              gameBoard.setTile(row, col, newboard[row][col]);
             }
           }
         }
         if (gameBoard.length() == 16) {
-          int[][] board = {
+          int[][] newboard = {
             {12, 2, 0, 7, 0, 0, 0, 16, 6, 15, 0, 0, 0, 3, 0, 14},
             {0, 0, 0, 9, 12, 0, 2, 0, 0, 0, 0, 0, 16, 1, 0, 6},
             {0, 11, 0, 13, 0, 0, 7, 0, 4, 0, 8, 0, 0, 0, 15, 0},
@@ -126,14 +126,16 @@ class BoardScreen {
             {16, 0, 4, 12, 0, 0, 0, 0, 0, 3, 0, 14, 1, 0, 0, 0},
             {5, 0, 14, 0, 0, 0, 16, 15, 9, 0, 0, 0, 2, 0, 12, 4},
           };
-          
+
           for (int row = 0; row < 16; row++) {
             for (int col = 0; col < 16; col++) {
-              gameBoard.setTile(row, col, board[row][col]);
+              gameBoard.setTile(row, col, newboard[row][col]);
             }
           }
         }
       }
+    }
+
 
     // CLEAR BOARD IN MODE 5
     if (mouseX >= 740 && mouseX <= 940 && mouseY >= 200 && mouseY <= 280) {
@@ -162,7 +164,6 @@ class BoardScreen {
         exit();
       }
     }
-  }
   }
 
   void show() {
